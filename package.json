@@ -4,7 +4,7 @@
   "description": "页面组件按需加载",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "build": "webpack",
     "build:prod": "cross-env NODE_ENV=production webpack --color --progress",
     "http-server": "cd ./dist && http-server -c-1 -o -P https://easy-mock.com/mock/5ad07a89909da41e79f4a8a3"

@@ -80,7 +80,10 @@ const webpackConfig = {
 		new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './app/template.html'),
 		}),
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      disable: isDev ? true : false,
+    }),
     new CleanWebpackPlugin(),
 	]
 }
@@ -116,14 +119,13 @@ if (isProd) {
 if(isDev) {
   webpackConfig.plugins.push(
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({
       url: 'http://127.0.0.1:9999'
     }),
   );
   webpackConfig.devServer = {
+    contentBase: path.resolve(__dirname, 'dist'),
     historyApiFallback: true,
-    hot: true,
     progress: true,
     host: '127.0.0.1',
     port: 9999,

@@ -19,7 +19,7 @@ export default class List extends React.Component {
   render() {
     return (
       <div className="page-list-wrapper">
-        我是按需加载的路由页面
+        我是按需加载的路由页面 List
       </div>
     )
   }
