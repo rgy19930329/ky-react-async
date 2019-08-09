@@ -88,7 +88,6 @@ const webpackConfig = {
 	]
 }
 
-
 if (isProd) {
   webpackConfig.plugins.push(
     // 压缩 JS 代码

@@ -6,7 +6,7 @@ let routes = [];
 
 let paths = [];
 
-const req = require.context("@pages", true, /^\.\/[^_][\w-]+\/router\.js?$/);
+const req = require.context("@pages", true, /router\.js?$/);
 
 req.keys().forEach((mod) => {
   let v = req(mod);

@@ -5,24 +5,28 @@
  */
 
 import React from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import routes from "@components/Systems/router";
 import NotFound from "@components/Systems/NotFound";
+import Header from "@components/Header";
 
 @withRouter
 class RootRouter extends React.Component {
   render() {
     const location = this.props.location;
     return (
-      <Switch location={location}>
-        {routes.map(({ name, path, exact = true, component }) => {
-          return (
-            <Route key={name} path={path} exact={exact} component={component} />
-          )
-        })}
-        {/* <Redirect from="/" exact to="/home" /> */}
-        <Route path="*" component={NotFound} />
-      </Switch>
+      <div>
+        <Header />
+        <Switch location={location}>
+          {routes.map(({ name, path, exact = true, component }) => {
+            return (
+              <Route key={name} path={path} exact={exact} component={component} />
+            )
+          })}
+          {/* <Redirect from="/" exact to="/home" /> */}
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </div>
     )
   }
 }

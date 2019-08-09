@@ -1,4 +1,4 @@
-import Home from "@pages/home";
+import Home from "./index";
 
 export default [
   {
