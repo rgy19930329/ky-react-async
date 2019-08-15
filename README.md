@@ -68,6 +68,15 @@ if(isDev) {
 }
 ```
 
+配置 devServer
+
+```js
+webpackConfig.devServer = {
+  ...
+  hot: true,
+};
+```
+
 用这种方法，就可以不用在启动 webpack-dev-server 时添加参数 --hot
 
 ```json

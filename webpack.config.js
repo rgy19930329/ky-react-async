@@ -12,7 +12,10 @@ const isProd = process.env.NODE_ENV === 'production';
 const isDev = process.env.NODE_ENV === 'development';
 
 const webpackConfig = {
-	entry: path.resolve(__dirname, './app/app.js'),
+	entry: [
+    path.resolve(__dirname, './app/app.js'),
+    isDev && 'react-hot-loader/patch',
+  ],
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name]_[hash:6].js',
