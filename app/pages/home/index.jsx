@@ -17,7 +17,7 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<div className="page-home-wrapper">
-				<h2>Welcome t2o Home ==> {this.state.count}</h2>
+				<h2>Welcome to Home ==> {this.state.count}</h2>
 				<div>
 					<Button onClick={() => {
 						this.setState({

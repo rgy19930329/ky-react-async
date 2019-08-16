@@ -5,8 +5,13 @@
  */
 
 import React from "react";
+import { Button } from "antd";
 
 export default class List extends React.Component {
+
+  state = {
+		count: 0,
+	};
 
   constructor(props) {
     super(props);
@@ -19,7 +24,14 @@ export default class List extends React.Component {
   render() {
     return (
       <div className="page-list-wrapper">
-        我是按需加载的路由页面 List
+        我是按需加载的路由页面哟 List {this.state.count}
+        <div>
+					<Button onClick={() => {
+						this.setState({
+							count: this.state.count + 1,
+						});
+					}}>plus</Button>
+				</div>
       </div>
     )
   }
