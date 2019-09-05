@@ -1,6 +1,6 @@
 # ky-react-async
 
-页面组件按需加载
+页面组件按需加载 + 热更新 + 热替换 + react-redux
 
 ## Project setup
 ```
