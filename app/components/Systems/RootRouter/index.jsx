@@ -17,15 +17,17 @@ class RootRouter extends React.Component {
     return (
       <div>
         <Header />
-        <Switch location={location}>
-          {routes.map(({ name, path, exact = true, component }) => {
-            return (
-              <Route key={name} path={path} exact={exact} component={component} />
-            )
-          })}
-          {/* <Redirect from="/" exact to="/home" /> */}
-          <Route path="*" component={NotFound} />
-        </Switch>
+        <div style={{padding: 15}}>
+          <Switch location={location}>
+            {routes.map(({ name, path, exact = true, component }) => {
+              return (
+                <Route key={name} path={path} exact={exact} component={component} />
+              )
+            })}
+            {/* <Redirect from="/" exact to="/home" /> */}
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </div>
       </div>
     )
   }

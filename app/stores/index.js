@@ -1,7 +1,20 @@
-import TodoListStore from "./TodoListStore";
-import AuthStore from "./AuthStore";
+import { combineReducers, createStore } from "redux";
 
-export default {
-  todoListStore: new TodoListStore(),
-  authStore: new AuthStore(),
-}
+const req = require.context("@stores", true, /reducer\.js$/);
+let reducerCombine = {};
+req.keys().forEach(mod => {
+  let v = req(mod);
+  if (v && v.default) {
+    v = v.default;
+  }
+  const match = mod.match(/^\.\/([^_][\w-]+)\/reducer\.jsx?$/);
+  if (match && match[1]) {
+    reducerCombine[match[1]] = v;
+  }
+});
+
+const reducers = combineReducers(reducerCombine);
+
+const store = createStore(reducers);
+
+export default store;
