@@ -4,6 +4,7 @@ const updateListAction = (params) => {
     params,
   }
 }
+
 export {
   updateListAction,
 }
