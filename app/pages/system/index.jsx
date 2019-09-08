@@ -7,26 +7,16 @@
 import "./index.less";
 import React from "react";
 import { Switch } from "antd";
-import { connect } from "react-redux";
+import RConnect from "@components/RConnect";
 import { toggleAction } from "@stores/system/action";
 
-const mapStateToProps = state => {
-  return {
-    isOpen: state.system.isOpen,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onToggle: () => {
-      dispatch(toggleAction)
-    },
-  }
-}
-
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
+@RConnect(
+  state => {
+    return {
+      isOpen: state.system.isOpen,
+    }
+  },
+  { onToggle: toggleAction },
 )
 export default class System extends React.Component {
 

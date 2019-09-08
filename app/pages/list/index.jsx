@@ -5,29 +5,18 @@
  */
 
 import React from "react";
-import { Button } from "antd";
 import { Section } from "nice-ui";
-import { connect } from "react-redux";
+import RConnect from "@components/RConnect";
 import { updateListAction } from "@stores/list/action";
 import { fetch } from "@utils";
 
-const mapStateToProps = state => {
-  return {
-    list: state.list.list,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    updateList: (params) => {
-      dispatch(updateListAction(params));
-    },
-  }
-}
-
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
+@RConnect(
+  state => {
+    return {
+      list: state.list.list,
+    }
+  },
+  { updateList: updateListAction },
 )
 export default class List extends React.Component {
 
