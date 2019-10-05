@@ -19,9 +19,14 @@ class RootRouter extends React.Component {
         <Header />
         <div style={{padding: 15}}>
           <Switch location={location}>
-            {routes.map(({ name, path, exact = true, component }) => {
+            {routes.map(({ key, path, exact = true, component }, idx) => {
               return (
-                <Route key={name} path={path} exact={exact} component={component} />
+                <Route
+                  key={key || idx}
+                  path={path}
+                  exact={exact}
+                  component={component}
+                />
               )
             })}
             {/* <Redirect from="/" exact to="/home" /> */}
